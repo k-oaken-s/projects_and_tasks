@@ -34,6 +34,7 @@ services:
       - 3306:3306
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: "mhpmyadmin"
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
@@ -45,3 +46,8 @@ services:
        - 8080:80
     volumes:
        - /sessions
+  redis:
+    image: redis:alpine
+    container_name: "redis"
+    ports:
+      - 16379:6379
